@@ -1,23 +1,31 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LoadAsset : MonoBehaviour
 {
-    string assetBundleURL = "https://my-files.su/Save/wp43vk/model.unity3d";
-    int version = 0;
+    [SerializeField] private string assetBundleURL;
+    [SerializeField] private int version = 0;
+    [SerializeField] private string nameObj;
+    [SerializeField] private Vector3 spawnPosition;
 
+    public void Awake()
+    {
+        version = PlayerPrefs.GetInt("countDownload");
+    }
 
     public void OnClick()
     {
+        PlayerPrefs.SetInt("countDownload", ++version);
         StartCoroutine(Download());
     }
+
     IEnumerator Download()
     {
         while (!Caching.ready)
             yield return null;
 
         var www = WWW.LoadFromCacheOrDownload(assetBundleURL, version);
+            yield return www;
 
         if (!string.IsNullOrEmpty(www.error))
         {
@@ -26,12 +34,11 @@ public class LoadAsset : MonoBehaviour
         }
         Debug.Log("Бандл загружен");
 
-        var modelRequest = www.assetBundle.LoadAssetAsync("car", typeof(GameObject));
+        var modelRequest = www.assetBundle.LoadAssetAsync(nameObj, typeof(GameObject));
         yield return modelRequest;
         Debug.Log("Модель распакована");
 
-        GameObject model = modelRequest.asset as GameObject;
-        Instantiate(model);
+        Instantiate(modelRequest.asset as GameObject, spawnPosition, Quaternion.identity);
         Debug.Log("Модель поставлена");
     }
 }
