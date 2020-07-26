@@ -19,4 +19,10 @@ public class CreateAsset
     {
         BuildPipeline.BuildAssetBundles("Assets/Asset", BuildAssetBundleOptions.None, BuildTarget.WebGL);
     }
+
+    [MenuItem("Assets Bundle/Build AssetBundle WSA (Hololens)")]
+    static void BildAssetBundlesWsa()
+    {
+        BuildPipeline.BuildAssetBundles("Assets/Asset", BuildAssetBundleOptions.None, BuildTarget.WSAPlayer);
+    }
 }
