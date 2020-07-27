@@ -4,9 +4,9 @@ using UnityEngine;
 public class LoadAsset : MonoBehaviour
 {
     [SerializeField] private string assetBundleURL;
-    [SerializeField] private int version = 0;
     [SerializeField] private string nameObj;
     [SerializeField] private Vector3 spawnPosition;
+    private int version = 0;
     private GameObject _currentGameObj;
     private WWW www;
 
@@ -15,6 +15,10 @@ public class LoadAsset : MonoBehaviour
         version = PlayerPrefs.GetInt("countDownload");
     }
 
+
+    /// <summary>
+    /// To call the upload AssetBundle
+    /// </summary>
     public void OnClick()
     {
         if (_currentGameObj != null)
@@ -44,13 +48,13 @@ public class LoadAsset : MonoBehaviour
             Debug.LogError(www.error);
             yield break;
         }
-        Debug.Log("Бандл загружен");
+        Debug.Log("AssetBundle loaded.");
 
         AssetBundleRequest modelRequest = www.assetBundle.LoadAssetAsync(nameObj, typeof(GameObject));
         yield return modelRequest;
-        Debug.Log("Модель распакована");
+        Debug.Log("The model is unpacked.");
 
         _currentGameObj = Instantiate(modelRequest.asset as GameObject, spawnPosition, Quaternion.identity);
-        Debug.Log("Модель поставлена");
+        Debug.Log("An instance of the model was created.");
     }
 }

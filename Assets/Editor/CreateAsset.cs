@@ -2,6 +2,7 @@
 
 public class CreateAsset
 {
+
     [MenuItem("Assets Bundle/Build AssetBundle Windows64")]
     static void BildAssetBundles()
     {
