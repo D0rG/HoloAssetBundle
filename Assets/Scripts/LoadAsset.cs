@@ -7,6 +7,8 @@ public class LoadAsset : MonoBehaviour
     [SerializeField] private int version = 0;
     [SerializeField] private string nameObj;
     [SerializeField] private Vector3 spawnPosition;
+    private GameObject _currentGameObj;
+    private WWW www;
 
     public void Awake()
     {
@@ -15,16 +17,26 @@ public class LoadAsset : MonoBehaviour
 
     public void OnClick()
     {
+        if (_currentGameObj != null)
+        {
+            Destroy(_currentGameObj);
+        }
+
         PlayerPrefs.SetInt("countDownload", ++version);
         StartCoroutine(Download());
     }
 
     IEnumerator Download()
     {
+        if (www != null && www.assetBundle != null)
+        {
+            www.assetBundle.Unload(false);
+        }
+
         while (!Caching.ready)
             yield return null;
 
-        var www = WWW.LoadFromCacheOrDownload(assetBundleURL, version);
+        www = WWW.LoadFromCacheOrDownload(assetBundleURL, version);
             yield return www;
 
         if (!string.IsNullOrEmpty(www.error))
@@ -34,11 +46,11 @@ public class LoadAsset : MonoBehaviour
         }
         Debug.Log("Бандл загружен");
 
-        var modelRequest = www.assetBundle.LoadAssetAsync(nameObj, typeof(GameObject));
+        AssetBundleRequest modelRequest = www.assetBundle.LoadAssetAsync(nameObj, typeof(GameObject));
         yield return modelRequest;
         Debug.Log("Модель распакована");
 
-        Instantiate(modelRequest.asset as GameObject, spawnPosition, Quaternion.identity);
+        _currentGameObj = Instantiate(modelRequest.asset as GameObject, spawnPosition, Quaternion.identity);
         Debug.Log("Модель поставлена");
     }
 }

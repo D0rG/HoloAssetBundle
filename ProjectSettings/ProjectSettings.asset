@@ -659,7 +659,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0040f2670375d701
   metroApplicationDescription: Template_3D
   wsaImages: {}
-  metroTileShortName: TD
+  metroTileShortName: Model3d
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
@@ -703,7 +703,7 @@ PlayerSettings:
       RemoteSystem: False
       RemovableStorage: False
       SharedUserCertificates: False
-      SpatialPerception: True
+      SpatialPerception: False
       SystemManagement: False
       UserAccountInformation: False
       UserDataTasks: False
