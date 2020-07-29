@@ -21,11 +21,6 @@ public class LoadAsset : MonoBehaviour
     /// </summary>
     public void OnClick()
     {
-        if (_currentGameObj != null)
-        {
-            Destroy(_currentGameObj);
-        }
-
         PlayerPrefs.SetInt("countDownload", ++version);
         StartCoroutine(Download());
     }
