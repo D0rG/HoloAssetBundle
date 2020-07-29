@@ -256,7 +256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assetBundleURL: http://192.168.0.150/model.txt
-  version: 3
   nameObj: 3dmodel
   spawnPosition: {x: 0, y: 0, z: 0.814}
 --- !u!4 &1595720974
@@ -428,7 +427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1210820392543280, guid: 80cec532ae7b6c1429d0f5494e7dbd8c, type: 3}
       propertyPath: m_Name
-      value: ButtonHoloLens1
+      value: BtnLoadModel
       objectReference: {fileID: 0}
     - target: {fileID: 4249060311757736, guid: 80cec532ae7b6c1429d0f5494e7dbd8c, type: 3}
       propertyPath: m_LocalPosition.x
