@@ -9,6 +9,6 @@ What was used:
   - Hololens 1st gen.
   - Magic
 ***
-
+[test video](https://www.dropbox.com/s/37m3q6syf62ih9a/AssetBundle.mp4?dl=0)
 
 
