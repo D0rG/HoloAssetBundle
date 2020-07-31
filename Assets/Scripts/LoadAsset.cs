@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LoadAsset : MonoBehaviour
 {
-    [SerializeField] private string assetBundleURL;
+    private string assetBundleURL;  //http://192.168.0.150/model.txt
     [SerializeField] private string nameObj;
     [SerializeField] private Vector3 spawnPosition;
     private int version = 0;
@@ -13,6 +13,15 @@ public class LoadAsset : MonoBehaviour
     public void Awake()
     {
         version = PlayerPrefs.GetInt("countDownload");
+        try
+        {
+            string assetBundleURL = PlayerPrefs.GetString("assetBundleURL");
+        }
+        catch
+        {
+            Debug.LogError("The link is not saved.");
+            PlayerPrefs.SetString("assetBundleURL", "");
+        }
     }
 
 
@@ -21,6 +30,8 @@ public class LoadAsset : MonoBehaviour
     /// </summary>
     public void OnClick()
     {
+        string assetBundleURL = PlayerPrefs.GetString("assetBundleURL");
+        Debug.Log(assetBundleURL);
         PlayerPrefs.SetInt("countDownload", ++version);
         StartCoroutine(Download());
     }
