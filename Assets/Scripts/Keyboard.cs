@@ -16,6 +16,6 @@ public class Keyboard : MonoBehaviour
 
     public void SetModelAdress()
     {
-        PlayerPrefs.SetString("assetBundleURL", inputField.text);
+        PlayerPrefs.SetString("assetBundleURL", inputField.text.Trim());
     }
 }
