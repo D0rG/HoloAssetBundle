@@ -11,7 +11,7 @@ public class Keyboard : MonoBehaviour
     
     public void WriteModelAdress()
     {
-        keyboard = TouchScreenKeyboard.Open("Write adress", TouchScreenKeyboardType.Default, false, false, false, false);
+        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);
     }
 
     public void SetModelAdress()
