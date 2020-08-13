@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LoadAsset : MonoBehaviour
 {
-    private string assetBundleURL;  //http://192.168.0.150/model.txt
+    private string assetBundleURL;  //http://192.168.0.150/model.txt 
     [SerializeField] private string nameObj;
     [SerializeField] private Vector3 spawnPosition;
     private int version = 0;
@@ -30,14 +30,13 @@ public class LoadAsset : MonoBehaviour
     /// </summary>
     public void OnClick()
     {
-        string assetBundleURL = PlayerPrefs.GetString("assetBundleURL");
-        Debug.Log(assetBundleURL);
         PlayerPrefs.SetInt("countDownload", ++version);
         StartCoroutine(Download());
     }
 
     IEnumerator Download()
     {
+        assetBundleURL = PlayerPrefs.GetString("assetBundleURL");
         if (www != null && www.assetBundle != null)
         {
             www.assetBundle.Unload(false);

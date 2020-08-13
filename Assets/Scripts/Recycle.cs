@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Recycle : MonoBehaviour
 {
-    private void OnCollisionStay(Collision collision)
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    Destroy(collision.gameObject);
+    //}
+
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(collision.gameObject);
+        Destroy(other.gameObject);
     }
 }
