@@ -11,7 +11,7 @@ public class CreateAsset
     {
         string directory = mainPath + "Windows64";
         checkDir(directory);
-        BuildPipeline.BuildAssetBundles(mainPath + "Windows64", BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows64);
+        BuildPipeline.BuildAssetBundles(directory, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows64);
     }
 
     [MenuItem("Assets Bundle/Build AssetBundle Windows32")]
@@ -19,7 +19,7 @@ public class CreateAsset
     {
         string directory = mainPath + "Windows32";
         checkDir(directory);
-        BuildPipeline.BuildAssetBundles(mainPath + "Windows32", BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);
+        BuildPipeline.BuildAssetBundles(directory, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);
     }
     
     [MenuItem("Assets Bundle/Build AssetBundle WebGL")]
@@ -27,7 +27,7 @@ public class CreateAsset
     {
         string directory = mainPath + "WebGL";
         checkDir(directory);
-        BuildPipeline.BuildAssetBundles(mainPath + "WebGL", BuildAssetBundleOptions.None, BuildTarget.WebGL);
+        BuildPipeline.BuildAssetBundles(directory, BuildAssetBundleOptions.None, BuildTarget.WebGL);
     }
 
     [MenuItem("Assets Bundle/Build AssetBundle WSA (Hololens)")]
@@ -35,7 +35,7 @@ public class CreateAsset
     {
         string directory = mainPath + "Hololens_(WSA)";
         checkDir(directory);
-        BuildPipeline.BuildAssetBundles(mainPath + "Hololens_(WSA)", BuildAssetBundleOptions.None, BuildTarget.WSAPlayer);
+        BuildPipeline.BuildAssetBundles(directory, BuildAssetBundleOptions.None, BuildTarget.WSAPlayer);
     }
 
     private static void checkDir(string dir)
