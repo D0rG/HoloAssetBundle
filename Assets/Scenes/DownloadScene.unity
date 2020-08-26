@@ -400,11 +400,10 @@ GameObject:
   - component: {fileID: 675068348}
   - component: {fileID: 675068347}
   - component: {fileID: 675068346}
-  - component: {fileID: 675068350}
   - component: {fileID: 675068351}
   m_Layer: 0
   m_Name: Recycle Bin
-  m_TagString: Untagged
+  m_TagString: recycle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -481,18 +480,6 @@ Transform:
   m_Father: {fileID: 1535218006}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 33.755, y: 62.338, z: -44.801003}
---- !u!114 &675068350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675068345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c947e1d52c4c0e47ab307a0f81ef026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &675068351
 Rigidbody:
   m_ObjectHideFlags: 0

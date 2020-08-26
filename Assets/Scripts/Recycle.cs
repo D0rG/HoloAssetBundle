@@ -1,16 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Recycle : MonoBehaviour
 {
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    Destroy(collision.gameObject);
-    //}
+    public bool isCatched = false;
 
-    private void OnTriggerEnter(Collider other)
+    public void updCatchedStatus(bool isCatched)
     {
-        Destroy(other.gameObject);
+        this.isCatched = isCatched;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "recycle" && !isCatched)
+        {
+            Destroy(gameObject);
+        }
     }
 }

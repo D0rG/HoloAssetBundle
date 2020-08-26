@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 3037809165860727986}
   - component: {fileID: 3037809165860727984}
   - component: {fileID: 3037809165860727993}
+  - component: {fileID: 3131720016684807070}
   m_Layer: 0
   m_Name: 3dmodel
   m_TagString: Untagged
@@ -165,10 +166,32 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   onManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3131720016684807070}
+        m_MethodName: updCatchedStatus
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3131720016684807070}
+        m_MethodName: updCatchedStatus
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -280,3 +303,16 @@ MonoBehaviour:
   ScaleStopped:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3131720016684807070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3037809165860727985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c947e1d52c4c0e47ab307a0f81ef026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCatched: 0
