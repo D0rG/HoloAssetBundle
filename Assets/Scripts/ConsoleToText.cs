@@ -4,21 +4,26 @@ using UnityEngine.UI;
 public class ConsoleToText : MonoBehaviour
 {
     string myLog;
+    Text textUi;
 
-    void OnEnable()
+    private void Awake()
+    {
+        textUi = gameObject.GetComponent<Text>();
+    }
+
+    private void OnEnable()
     {
         Application.logMessageReceived += HandleLog;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         Application.logMessageReceived -= HandleLog;
     }
 
-    void HandleLog(string logString, string stackTrace, LogType type)
+    private void HandleLog(string logString, string stackTrace, LogType type)
     {
-        myLog = logString;
-        string newString = "\n [" + type + "] : " + myLog;
-        gameObject.GetComponent<Text>().text = newString + gameObject.GetComponent<Text>().text;
+        string newString = "\n [" + type + "] : " + logString;
+        textUi.text = newString + textUi.text;
     }
 }
